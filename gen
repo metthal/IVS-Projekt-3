@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ $# -gt 1 ]; then
+    echo "Nespravny pocet parametrov"
+    exit 1
+fi
+
+TYPE="Release"
+echo "$1" | grep -ixq "debug"
+if [ $? -eq 0 ]; then
+    TYPE="Debug"
+fi
+
+cmake . -DCMAKE_BUILD_TYPE="$TYPE"
