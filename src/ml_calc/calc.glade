@@ -490,8 +490,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="cos">
-                <property name="label" translatable="yes">    cos    </property>
+              <object class="GtkButton" id="Pi">
+                <property name="label" translatable="yes">    Pi    </property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
