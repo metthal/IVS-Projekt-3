@@ -1,2 +1,3 @@
 add_subdirectory(ml_math)
 add_subdirectory(ml_calc)
+add_subdirectory(ml_math_tests)
