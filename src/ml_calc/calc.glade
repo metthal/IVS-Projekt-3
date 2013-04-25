@@ -202,8 +202,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="-">
-                <property name="label" translatable="yes">x!</property>
+              <object class="GtkButton" id="sin">
+                <property name="label" translatable="yes">sin</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -377,8 +377,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="7">
-                <property name="label" translatable="yes">9</property>
+              <object class="GtkButton" id="tan">
+                <property name="label" translatable="yes">tan</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -476,8 +476,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="sin">
-                <property name="label" translatable="yes">    sin   </property>
+              <object class="GtkButton" id="s">
+                <property name="label" translatable="yes">    x!   </property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -519,8 +519,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="8">
-                <property name="label" translatable="yes">8</property>
+              <object class="GtkButton" id="cos">
+                <property name="label" translatable="yes">cos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
