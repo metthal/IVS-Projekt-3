@@ -102,7 +102,7 @@ double ml_ln(double x)
     double aktual = x;
     unsigned int n = 2;
 
-    while (ml_abs(aktual) > ml_abs(DBL_MAX * sum))
+    while (ml_abs(aktual) > ml_abs(ML_EPS * sum))
     {
         aktual *= -x*(n-1)/n;
         sum += aktual;
@@ -138,7 +138,7 @@ double ml_exp(double x)
     double aktual = 1;
     unsigned int n = 1;
 
-    while (ml_abs(aktual) > ml_abs(DBL_MAX * sum))
+    while (ml_abs(aktual) > ml_abs(ML_EPS * sum))
     {
         aktual *= x/n;
         sum += aktual;

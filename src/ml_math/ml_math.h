@@ -12,6 +12,7 @@ enum Errors
 
 const double    ML_E                = 2.7182818284590452354;
 const int       ML_INT_BITS         = sizeof(int) * CHAR_BIT;
+const double    ML_EPS              = 1e-15;
 
 extern int ml_math_err;
 
