@@ -1,6 +1,8 @@
 #ifndef ML_MATH_H
 #define ML_MATH_H
 
+#include <limits.h>
+
 enum Errors
 {
     ML_MATH_OK                      = 0,
@@ -8,7 +10,8 @@ enum Errors
     ML_MATH_ERROR_INVALID_INPUT,
 };
 
-const double ML_E = 2.7182818284590452354;
+const double    ML_E                = 2.7182818284590452354;
+const int       ML_INT_BITS         = sizeof(int) * CHAR_BIT;
 
 extern int ml_math_err;
 
@@ -25,5 +28,8 @@ double ml_abs(double n);
 
 double _ml_power(double x, double a);
 double _ml_factorial(double n);
+
+int _ml_isnan(double n);
+int _ml_isinf(double n);
 
 #endif
