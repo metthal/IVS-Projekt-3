@@ -36,8 +36,52 @@ double ml_divide(double a, double b)
 
 double ml_power(double x, double a)
 {
+    int mod = 1;
+
+    if (_ml_isnan(x)) // ak je cislo NAN, mozme rovno vratit NAN
+    {
+        ml_math_err = ML_MATH_ERROR_INVALID_INPUT;
+        return x;
+    }
+    else if (_ml_isinf(x)) // ak je cislo INFINITY
+    {
+        if (a == 0)     // INFINITY^0 = 1
+        {
+            ml_math_err = ML_MATH_OK;
+            return 1.0;
+        }
+        else if (a < 0) // INFINITY na zaporny exponent je 0
+        {
+            ml_math_err = ML_MATH_OK;
+            return 0.0;
+        }
+    }
+    else if (x < 0)
+    {
+        // ak zaporne cislo mocnime na parny exponent, tak vznika cislo kladne
+        // toto treba pridat
+    }
+    else if (x == 0)
+    {
+        if (a > 0.0)      // 0^a = 0 kde a > 0
+        {
+            ml_math_err = ML_MATH_OK;
+            return 0.0;
+        }
+        else if (a < 0.0) // 0^a = NAN kde a < 0
+        {
+            ml_math_err = ML_MATH_ERROR_INVALID_INPUT;
+            return NAN;
+        }
+        else            // 0^0 = 1
+        {
+            ml_math_err = ML_MATH_OK;
+            return 1.0;
+        }
+    }
+
     ml_math_err = ML_MATH_OK;
-    return NAN;
+    return ml_exp(a * ml_ln(x)) * mod;
 }
 
 double _ml_power(double x, double a)
@@ -57,8 +101,7 @@ double _ml_power(double x, double a)
 
 double ml_root(double x, double a)
 {
-    ml_math_err = ML_MATH_OK;
-    return NAN;
+    return ml_power(x, 1.0/a);
 }
 
 double ml_ln(double x)
