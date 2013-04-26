@@ -8,17 +8,22 @@ enum Errors
     ML_MATH_ERROR_INVALID_INPUT,
 };
 
+const double ML_E = 2.7182818284590452354;
+
 extern int ml_math_err;
 
-double add(double a, double b);
-double subtract(double a, double b);
-double multiply(double a, double b);
-double divide(double a, double b);
-double power(double x, double a);
-double root(double x, double a);
-double sinus(double x);
-double cosinus(double x);
-double factorial(double n);
-double _factorial(double n);
+double ml_add(double a, double b);
+double ml_subtract(double a, double b);
+double ml_multiply(double a, double b);
+double ml_divide(double a, double b);
+double ml_power(double x, double a);
+double ml_root(double x, double a);
+double ml_ln(double x);
+double ml_exp(double x);
+double ml_factorial(double n);
+double ml_abs(double n);
+
+double _ml_power(double x, double a);
+double _ml_factorial(double n);
 
 #endif
