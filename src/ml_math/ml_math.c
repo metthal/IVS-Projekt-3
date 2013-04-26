@@ -59,7 +59,10 @@ double ml_power(double x, double a)
     else if (x < 0)
     {
         // ak zaporne cislo mocnime na parny exponent, tak vznika cislo kladne
-        // toto treba pridat
+        if ((a < 0 && _ml_ceil(a) != a) || (a > 0 && _ml_floor(a) != a))
+            return NAN;
+        mod = (long)a % 2 ? -1 : 1;
+        x = -x;
     }
     else if (x == 0)
     {
@@ -224,4 +227,14 @@ int _ml_isnan(double n)
 int _ml_isinf(double n)
 {
     return !_ml_isnan(n) && _ml_isnan(n - n);
+}
+
+double _ml_ceil(double n)
+{
+    return (double)(long)(n + (n < 0.0 ? 0.0 : 1.0));
+}
+
+double _ml_floor(double n)
+{
+    return (double)(long)(n + (n < 0.0 ? -1.0 : 0.0));
 }

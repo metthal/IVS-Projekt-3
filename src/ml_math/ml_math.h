@@ -30,6 +30,9 @@ double ml_abs(double n);
 double _ml_power(double x, double a);
 double _ml_factorial(double n);
 
+double _ml_floor(double n);
+double _ml_ceil(double n);
+
 int _ml_isnan(double n);
 int _ml_isinf(double n);
 
