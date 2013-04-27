@@ -14,7 +14,20 @@ Buttons buttonsData[ML_CALC_BUTTONS_MAX] =
     { "but_ml_8", &Button8_Clicked },
     { "but_ml_9", &Button9_Clicked },
     { "but_ml_add", &ButtonAdd_Clicked },
-    { "but_ml_subtract", &ButtonSubtract_Clicked }
+    { "but_ml_subtract", &ButtonSubtract_Clicked },
+    { "but_ml_multiply", &ButtonMultiply_Clicked },
+    { "but_ml_divide", &ButtonDivide_Clicked },
+    { "but_ml_power", &ButtonPower_Clicked },
+    { "but_ml_ln", &ButtonLn_Clicked },
+    { "but_ml_abs", &ButtonAbs_Clicked },
+    { "but_ml_decimal", &ButtonDecimal_Clicked },
+    { "but_ml_root", &ButtonRoot_Clicked },
+    { "but_ml_factorial", &ButtonFactorial_Clicked },
+    { "but_ml_exp", &ButtonExp_Clicked },
+    { "but_ml_exec", &ButtonExec_Clicked },
+    { "but_ml_C", &ButtonC_Clicked },
+    { "but_ml_Ce", &ButtonCe_Clicked },
+    
 };
 
 double StrToDouble(const char *str)
@@ -49,12 +62,19 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
         case '-':
             buttonId = ML_CALC_BUTTON_SUBTRACT;
             break;
+        case '*':
+            buttonId = ML_CALC_BUTTON_MULTIPLY;
+            break;
+        case '/':
+            buttonId = ML_CALC_BUTTON_DIVIDE;
+            break;
+        case '=':
+            buttonId = ML_CALC_BUTTON_EXEC;
         default:
             return FALSE;
     }
 
-    //buttonsData[buttonId].buttonClicked(NULL, app);
-    gtk_button_clicked(app->buttons[buttonId]);
+    buttonsData[buttonId].buttonClicked(NULL, app);
     return FALSE;
 }
 
@@ -191,7 +211,22 @@ void Button9_Clicked(GtkButton *button, App *app)
 void ButtonAdd_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
-    gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
+    //gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    
+    if (app->step == STEP_FIRST_NUMBER)
+    {
+        app->storedNum = StrToDouble(str);
+        app->step = STEP_WAIT_FOR_NEW;
+    }
+    else
+    {
+        app->step = STEP_WAIT_FOR_NEW;
+        app->storedNum = app->storedNum + StrToDouble(str); // TU PRIDE OPERACIA, ULOZI MEDZIVYSLEDOK DO storedNum
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
 }
 
 void ButtonSubtract_Clicked(GtkButton *button, App *app)
@@ -213,6 +248,67 @@ void ButtonSubtract_Clicked(GtkButton *button, App *app)
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
 }
+
+void ButtonMultiply_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonDivide_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonPower_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonLn_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonAbs_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonExp_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonRoot_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonFactorial_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonDecimal_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonExec_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonC_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonCe_Clicked(GtkButton* button, App* app)
+{
+
+}
+
 
 gchar* gtk_text_buffer_get_whole_text(GtkTextBuffer *buffer)
 {

@@ -33,5 +33,17 @@ void Button8_Clicked(GtkButton *button, App *app);
 void Button9_Clicked(GtkButton *button, App *app);
 void ButtonAdd_Clicked(GtkButton *button, App *app);
 void ButtonSubtract_Clicked(GtkButton *button, App *app);
+void ButtonMultiply_Clicked(GtkButton *button, App *app);
+void ButtonDivide_Clicked(GtkButton *button, App *app);
+void ButtonPower_Clicked(GtkButton *button, App *app);
+void ButtonLn_Clicked(GtkButton *button, App *app);
+void ButtonAbs_Clicked(GtkButton *button, App *app);
+void ButtonDecimal_Clicked(GtkButton *button, App *app);
+void ButtonRoot_Clicked(GtkButton *button, App *app);
+void ButtonFactorial_Clicked(GtkButton *button, App *app);
+void ButtonExp_Clicked(GtkButton *button, App *app);
+void ButtonExec_Clicked(GtkButton *button, App *app);
+void ButtonC_Clicked(GtkButton *button, App *app);
+void ButtonCe_Clicked(GtkButton *button, App *app);
 
 #endif
