@@ -202,8 +202,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="sin">
-                <property name="label" translatable="yes">sin</property>
+              <object class="GtkButton" id="ln">
+                <property name="label" translatable="yes">ln</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -377,8 +377,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="tan">
-                <property name="label" translatable="yes">tan</property>
+              <object class="GtkButton" id="root">
+                <property name="label" translatable="yes">root</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -463,7 +463,7 @@
             </child>
             <child>
               <object class="GtkButton" id="CE">
-                <property name="label" translatable="yes">     )     </property>
+                <property name="label" translatable="yes">     CE     </property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -490,8 +490,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="Pi">
-                <property name="label" translatable="yes">     (     </property>
+              <object class="GtkButton" id="C">
+                <property name="label" translatable="yes">     C     </property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -519,8 +519,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="cos">
-                <property name="label" translatable="yes">cos</property>
+              <object class="GtkButton" id="abs">
+                <property name="label" translatable="yes">abs</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
