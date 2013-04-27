@@ -104,10 +104,6 @@ double ml_power(double x, double a);
  * @param n Udava, kolikata odmocnina cisla se ma vypocitat
  * 
  * @return a-ta odmocnina cisla x. Pokud neexistuje reseni, vraci NAN.
- *
- * @bug Neosetreno zadani zapornych cisel - vrati nespravny vysledek.
- *
- * @todo Pri zadani zaporneho cisla musi vratit NAN.
  */
 double ml_root(double x, double a);
 

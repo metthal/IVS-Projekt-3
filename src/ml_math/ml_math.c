@@ -104,7 +104,14 @@ double _ml_power(double x, double a)
 
 double ml_root(double x, double a)
 {
-    return ml_power(x, 1.0/a);
+    if (x < 0)
+        {
+            ml_math_err = ML_MATH_ERROR_INVALID_INPUT;
+            return NAN;
+        }
+        
+    else
+        return ml_power(x, 1.0/a);
 }
 
 double ml_ln(double x)
