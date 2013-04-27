@@ -260,8 +260,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button6">
-                <property name="label" translatable="yes">Pi</property>
+              <object class="GtkButton" id="abs">
+                <property name="label" translatable="yes">abs</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -519,8 +519,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="abs">
-                <property name="label" translatable="yes">abs</property>
+              <object class="GtkButton" id="exp">
+                <property name="label" translatable="yes">exp</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
