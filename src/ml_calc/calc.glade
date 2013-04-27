@@ -204,7 +204,7 @@
             </child>
             <child>
               <object class="GtkButton" id="but_ml_ln">
-                <property name="label" translatable="yes">ln(x)</property>
+                <property name="label" translatable="yes">ln</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -379,7 +379,7 @@
             </child>
             <child>
               <object class="GtkButton" id="but_ml_root">
-                <property name="label" translatable="yes">sqrt(x)</property>
+                <property name="label" translatable="yes">√</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -523,7 +523,7 @@
             </child>
             <child>
               <object class="GtkButton" id="but_ml_exp">
-                <property name="label" translatable="yes">x^e</property>
+                <property name="label" translatable="yes">e^x</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
