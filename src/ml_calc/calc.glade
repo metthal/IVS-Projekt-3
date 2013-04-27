@@ -183,6 +183,7 @@
           <object class="GtkGrid" id="grid2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">15</property>
             <property name="margin_bottom">10</property>
             <property name="row_spacing">5</property>
             <property name="column_spacing">5</property>
