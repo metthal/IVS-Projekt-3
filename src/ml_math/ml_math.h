@@ -155,7 +155,26 @@ double ml_abs(double n);
 double _ml_power(double x, double a);
 double _ml_factorial(double n);
 
+/**
+ * @fn double _ml_floor(double n)
+ *
+ * @brief Zaokrouhleni cisla dolu
+ * 
+ * @param n toto cislo bude zaokrouhleno
+ * 
+ * @return Hodntota n zaokrouhlena dolu
+ */
 double _ml_floor(double n);
+
+/**
+ * @fn double _ml_ceil(double n)
+ *
+ * @brief Zaokrouhleni cisla nahoru
+ * 
+ * @param n toto cislo bude zaokrouhleno
+ * 
+ * @return Hodntota n zaokrouhlena nahoru
+ */
 double _ml_ceil(double n);
 
 /**
@@ -163,9 +182,9 @@ double _ml_ceil(double n);
  *
  * @brief  Test, zda-li je hodnota argumentu ciselna
  * 
- * @param x pro toto cislo bude vracena absolutni hodnota
+ * @param n pro toto cislo bude vracena absolutni hodnota
  * 
- * @return Pokud x==NAN tak 1, jinak 0.
+ * @return Pokud n==NAN tak 1, jinak 0.
  */
 int _ml_isnan(double n);
 
@@ -176,7 +195,7 @@ int _ml_isnan(double n);
  * 
  * @param n promenna 
  * 
- * @return ???                                                              <<< TADY PROSIM DOPLNIT
+ * @return Pokud n==INF nebo n==-INFtak 1, jinak 0.
  */
 int _ml_isinf(double n);
 
