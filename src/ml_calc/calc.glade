@@ -9,7 +9,7 @@
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkMenuBar" id="menubar1">
+          <object class="GtkMenuBar" id="menubar">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_bottom">19</property>
@@ -167,7 +167,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkTextView" id="textview1">
+          <object class="GtkTextView" id="display">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="margin_bottom">31</property>
@@ -260,7 +260,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="abs">
+              <object class="GtkButton" id="but_">
                 <property name="label" translatable="yes">abs</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
