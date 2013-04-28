@@ -153,20 +153,20 @@ double ml_factorial(double n);
 double ml_abs(double n);
 
 /**
- * @todo pridat popis
- */
-double ml_round(double n);
-
-/**
- * @fn double ml_invert(double n)
+ * @fn double ml_round(double n)
  *
  * @brief Zaokrouhleni cisla - do 0.4 dolu, jinak nahoru
  * 
  * @param n Desetinne cislo, ktere se zaokrouhluje
  * 
  * @return Zaokrouhlene cislo
+ */
+double ml_round(double n);
+
+/**
+ * @fn double ml_invert(double n)
  *
- * @bug Vsechna cisla zaokrouhluje dolu
+ * @todo pridat popis
  */
 double ml_invert(double n);
 
