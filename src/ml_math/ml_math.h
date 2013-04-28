@@ -156,7 +156,29 @@ double ml_abs(double n);
  * @todo pridat popis
  */
 double ml_round(double n);
+
+/**
+ * @fn double ml_invert(double n)
+ *
+ * @brief Zaokrouhleni cisla - do 0.4 dolu, jinak nahoru
+ * 
+ * @param n Desetinne cislo, ktere se zaokrouhluje
+ * 
+ * @return Zaokrouhlene cislo
+ *
+ * @bug Vsechna cisla zaokrouhluje dolu
+ */
 double ml_invert(double n);
+
+/**
+ * @fn double ml_change_sign(double n)
+ *
+ * @brief Zmena znamenka hodnoty parametru
+ * 
+ * @param n Desetinne cislo, u ktereho se zmeni znamenko
+ * 
+ * @return Zaporna hodnota zadaneho cisla, tedy -n
+ */
 double ml_change_sign(double n);
 
 double _ml_power(double x, double a);
