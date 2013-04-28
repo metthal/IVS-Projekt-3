@@ -3,9 +3,11 @@
  * 
  * @brief Hlavickovy soubor matematicke knihovny
  * 
- * @author Marek Milkov, Lubica Gencurova
+ * @author Marek Milkovic, Lubica Gencurova
  *
  * @date 27.4.2013
+ *
+ * @todo Vyresit problem se strtordem na systemech s radovou carkou misto "."
  */
 
 #ifndef ML_MATH_H
@@ -167,6 +169,7 @@ double ml_round(double n);
  * @return Zaokrouhlene cislo
  *
  * @bug Vsechna cisla zaokrouhluje dolu
+ *
  */
 double ml_invert(double n);
 
