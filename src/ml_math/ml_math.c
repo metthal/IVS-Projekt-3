@@ -178,7 +178,7 @@ double ml_exp(double x)
     double p_x = x;
 
     // a^(b*c) = a^b^c
-    while (ml_abs(p_x) > 1.0 && mod < ML_INT_BITS-1)
+    while (ml_abs(p_x) > 1.0 && mod < (unsigned int)ML_INT_BITS-1)
     {
         mod++;
         p_x /= 2.0;
