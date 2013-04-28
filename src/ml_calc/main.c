@@ -28,7 +28,7 @@ int Init(App **app)
     gtk_init(NULL, NULL);
 
     GtkBuilder *builder = gtk_builder_new();
-    gtk_builder_add_from_file(builder, "src/ml_calc/calc.glade", NULL); //* @todo calc.glade bude v /usr/share po instalacii */
+    gtk_builder_add_from_file(builder, "/usr/local/share/ml_calc/calc.glade", NULL);
 
     (*app)->mainWindow = GTK_WINDOW(gtk_builder_get_object(builder, "mainWindow"));
     (*app)->textView = GTK_TEXT_VIEW(gtk_builder_get_object(builder, "textView"));
