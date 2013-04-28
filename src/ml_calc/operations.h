@@ -44,6 +44,8 @@ gchar* gtk_text_buffer_get_whole_text(GtkTextBuffer *buffer);
  */
 void CharReplace(char *str, const char* substr, char replace);
 
+void PrintDouble(char *buffer, double number);
+
 /**
  * @fn StrToDouble(char *str)
  *
