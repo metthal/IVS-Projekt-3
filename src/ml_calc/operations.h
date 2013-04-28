@@ -13,6 +13,8 @@
 
 #include "shared.h"
 
+#define MAX_DIGITS 15
+
 enum Steps
 {
     STEP_WAIT_FIRST_NUMBER           =0,

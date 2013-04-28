@@ -62,6 +62,9 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
 
     int key = gdk_keyval_to_unicode(event->keyval);
     int buttonId = -1;
+
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    
     switch (key)
     {
         case '0':
@@ -74,7 +77,10 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
         case '7':
         case '8':
         case '9':
-            buttonId = key - '0';
+            if (strlen(str) != MAX_DIGITS)
+            {
+                buttonId = key - '0';
+            }
             break;
         case '+':
             buttonId = ML_CALC_BUTTON_ADD;
@@ -114,6 +120,9 @@ void Button0_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
+
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
@@ -126,6 +135,9 @@ void Button0_Clicked(GtkButton *button, App *app)
 void Button1_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
+
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
 
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
@@ -140,6 +152,9 @@ void Button2_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
+
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
@@ -152,6 +167,9 @@ void Button2_Clicked(GtkButton *button, App *app)
 void Button3_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
+
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
 
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
@@ -166,6 +184,9 @@ void Button4_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
+
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
@@ -178,6 +199,9 @@ void Button4_Clicked(GtkButton *button, App *app)
 void Button5_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
+
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
 
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
@@ -192,6 +216,9 @@ void Button6_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
+
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
@@ -204,6 +231,9 @@ void Button6_Clicked(GtkButton *button, App *app)
 void Button7_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
+
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
 
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
@@ -218,6 +248,9 @@ void Button8_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
+
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
@@ -230,6 +263,9 @@ void Button8_Clicked(GtkButton *button, App *app)
 void Button9_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
+
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
 
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
@@ -445,6 +481,9 @@ void ButtonFactorial_Clicked(GtkButton* button, App* app)
 void ButtonDecimal_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
+
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (strlen(str) > MAX_DIGITS) return;
 
     if (app->step == STEP_FIRST_NUMBER || app->step == STEP_SECOND_NUMBER)
     {
