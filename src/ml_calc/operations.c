@@ -99,6 +99,7 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
             buttonId = ML_CALC_BUTTON_AC;
             break;
         case 27:
+        case 8:
             buttonId = ML_CALC_BUTTON_C;
             break;
         default:
