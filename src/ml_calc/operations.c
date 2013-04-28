@@ -439,14 +439,29 @@ void ButtonExec_Clicked(GtkButton* button, App* app)
 void ButtonC_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
-    UNUSED(app);
+    if (app->step == STEP_SECOND_NUMBER)
+    {
+        app->step = STEP_WAIT_SECOND_NUMBER;
+        sprintf(app->buffer, "%.10g", 0.0);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+    {
+        app->storedNum=0;
+        app->step= STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
     
 }
 
 void ButtonAc_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
-    UNUSED(app);
+    app->storedNum=0;
+    app->step= STEP_WAIT_FIRST_NUMBER;
+    sprintf(app->buffer, "%.10g", app->storedNum);
+    gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
 }
 
 void ButtonSign_Clicked(GtkButton* button, App* app)
