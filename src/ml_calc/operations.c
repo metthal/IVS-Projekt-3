@@ -123,6 +123,8 @@ void Button0_Clicked(GtkButton *button, App *app)
     char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
     if (strlen(str) > MAX_DIGITS) return;
 
+    if (str[0] == '0') return;
+
     if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
