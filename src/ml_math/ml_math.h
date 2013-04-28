@@ -152,6 +152,11 @@ double ml_factorial(double n);
  */
 double ml_abs(double n);
 
+/**
+ * @todo pridat popis
+ */
+double ml_round(double n);
+
 double _ml_power(double x, double a);
 double _ml_factorial(double n);
 

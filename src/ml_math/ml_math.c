@@ -223,7 +223,14 @@ double _ml_factorial(double n)
 
 double ml_abs(double n)
 {
+    ml_math_err = ML_MATH_OK;
     return n < 0.0 ? -n : n;
+}
+
+double ml_round(double n)
+{
+    ml_math_err = ML_MATH_OK;
+    return _ml_floor(n + 0.5);
 }
 
 int _ml_isnan(double n)

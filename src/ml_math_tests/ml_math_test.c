@@ -179,7 +179,21 @@ int main()
     //* test 48 */
     TEST_SHOULD_EQ_INT("ml_isinf:48", 1, _ml_isinf(1.0/0.0));
     TEST_SHOULD_EQ_INT("ml_isinf:48_return", ML_MATH_OK, ml_math_err);
-    
+
+    //* ml_round */
+    //* test 49 */
+    TEST_SHOULD_EQ_FLT("ml_round:49", 17.0, ml_round(17.2));
+    TEST_SHOULD_EQ_INT("ml_round:49_return", ML_MATH_OK, ml_math_err);
+    //* test 50 */
+    TEST_SHOULD_EQ_FLT("ml_round:50", 23.0, ml_round(22.8));
+    TEST_SHOULD_EQ_INT("ml_round:50_return", ML_MATH_OK, ml_math_err);
+    //* test 51 */
+    TEST_SHOULD_EQ_FLT("ml_round:51", -17.0, ml_round(-17.2));
+    TEST_SHOULD_EQ_INT("ml_round:51_return", ML_MATH_OK, ml_math_err);
+    //* test 52 */
+    TEST_SHOULD_EQ_FLT("ml_round:52", -23.0, ml_round(-22.8));
+    TEST_SHOULD_EQ_INT("ml_round:52_return", ML_MATH_OK, ml_math_err);
+
     //* result */
     printf("\n***\n");
     printf("%d tests passed, %d tests failed.\n", ml_pass, ml_error);
