@@ -28,7 +28,7 @@ Buttons buttonsData[ML_CALC_BUTTONS_MAX] =
     { "but_ml_C", &ButtonC_Clicked },
     { "but_ml_AC", &ButtonAc_Clicked },
     { "but_ml_sign", &ButtonSign_Clicked },
-    { "but_ml_approx", &ButtonApprox_Clicked },
+    { "but_ml_round", &ButtonRound_Clicked },
     { "but_ml_sq", &ButtonSq_Clicked },
     { "but_ml_inv", &ButtonInv_Clicked },
     
@@ -45,7 +45,6 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
 
     int key = gdk_keyval_to_unicode(event->keyval);
     int buttonId = -1;
-    printf("key: %d\n", key);
     switch (key)
     {
         case '0':
@@ -440,23 +439,46 @@ void ButtonExec_Clicked(GtkButton* button, App* app)
 void ButtonC_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
-    
+    UNUSED(app);
     
 }
 
 void ButtonAc_Clicked(GtkButton* button, App* app)
 {
-
+    UNUSED(button);
+    UNUSED(app);
 }
 
 void ButtonSign_Clicked(GtkButton* button, App* app)
 {
-
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = ml_change_sign(StrToDouble(str));
+        app->step = STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
 }
 
-void ButtonApprox_Clicked(GtkButton* button, App* app)
+void ButtonRound_Clicked(GtkButton* button, App* app)
 {
-
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = ml_round(StrToDouble(str));
+        app->step = STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
 }
 
 void ButtonSq_Clicked(GtkButton* button, App* app)
@@ -482,7 +504,7 @@ void ButtonInv_Clicked(GtkButton* button, App* app)
     char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
     if (app->step <= STEP_FIRST_NUMBER)
     {
-        app->storedNum = ml_divide(1,StrToDouble(str));
+        app->storedNum = ml_invert(StrToDouble(str));
         app->step = STEP_WAIT_FIRST_NUMBER;
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);

@@ -175,6 +175,7 @@
             <property name="pixels_below_lines">30</property>
             <property name="editable">False</property>
             <property name="cursor_visible">False</property>
+            <property name="input_purpose">digits</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -554,7 +555,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="but_ml_approx">
+              <object class="GtkButton" id="but_ml_round">
                 <property name="label" translatable="yes">≅</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
