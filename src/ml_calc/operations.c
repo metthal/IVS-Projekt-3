@@ -47,13 +47,13 @@ void CharReplace(char *str, const char* substr, char replace)
 
 void PrintDouble(char *buffer, double number)
 {
-    CharReplace(str, ",", '.');
-    sprintf("%.10g", number);
+    CharReplace(buffer, ",", '.');
+    sprintf(buffer, "%.10g", number);
 }
 
 double StrToDouble(char *str)
 {
-    g_ascii_strtod(str, NULL);
+    return g_ascii_strtod(str, NULL);
 }
 
 gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
@@ -244,7 +244,7 @@ void ButtonAdd_Clicked(GtkButton *button, App *app)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
         app->storedNum = ml_add(app->storedNum,StrToDouble(str));
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -267,7 +267,7 @@ void ButtonSubtract_Clicked(GtkButton *button, App *app)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
         app->storedNum = ml_subtract(app->storedNum,StrToDouble(str));
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -290,7 +290,7 @@ void ButtonMultiply_Clicked(GtkButton* button, App* app)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
         app->storedNum = ml_multiply(app->storedNum,StrToDouble(str));
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -313,7 +313,7 @@ void ButtonDivide_Clicked(GtkButton* button, App* app)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
         app->storedNum = ml_divide(app->storedNum,StrToDouble(str));
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -336,7 +336,7 @@ void ButtonPower_Clicked(GtkButton* button, App* app)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
         app->storedNum = ml_power(app->storedNum,StrToDouble(str));
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -353,7 +353,7 @@ void ButtonLn_Clicked(GtkButton* button, App* app)
     {
         app->storedNum = ml_ln(StrToDouble(str));
         app->step = STEP_WAIT_FIRST_NUMBER;
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -369,7 +369,7 @@ void ButtonAbs_Clicked(GtkButton* button, App* app)
     {
         app->storedNum = ml_abs(StrToDouble(str));
         app->step = STEP_WAIT_FIRST_NUMBER;
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -385,7 +385,7 @@ void ButtonExp_Clicked(GtkButton* button, App* app)
     {
         app->storedNum = ml_exp(StrToDouble(str));
         app->step = STEP_WAIT_FIRST_NUMBER;
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -407,7 +407,7 @@ void ButtonRoot_Clicked(GtkButton* button, App* app)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
         app->storedNum = ml_root(app->storedNum,StrToDouble(str));
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -424,7 +424,7 @@ void ButtonFactorial_Clicked(GtkButton* button, App* app)
     {
         app->storedNum = ml_factorial(StrToDouble(str));
         app->step = STEP_WAIT_FIRST_NUMBER;
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -486,7 +486,7 @@ void ButtonSign_Clicked(GtkButton* button, App* app)
     {
         app->storedNum = ml_change_sign(StrToDouble(str));
         app->step = STEP_WAIT_FIRST_NUMBER;
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -502,7 +502,7 @@ void ButtonRound_Clicked(GtkButton* button, App* app)
     {
         app->storedNum = ml_round(StrToDouble(str));
         app->step = STEP_WAIT_FIRST_NUMBER;
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -518,7 +518,7 @@ void ButtonSq_Clicked(GtkButton* button, App* app)
     {
         app->storedNum = ml_power(StrToDouble(str),2);
         app->step = STEP_WAIT_FIRST_NUMBER;
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
@@ -534,7 +534,7 @@ void ButtonInv_Clicked(GtkButton* button, App* app)
     {
         app->storedNum = ml_invert(StrToDouble(str));
         app->step = STEP_WAIT_FIRST_NUMBER;
-        PrintNumber(app->buffer, app->storedNum);
+        PrintDouble(app->buffer, app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
     else
