@@ -466,8 +466,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="but_ml_Ce">
-                <property name="label" translatable="yes">   CE   </property>
+              <object class="GtkButton" id="but_ml_AC">
+                <property name="label" translatable="yes">   AC   </property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>

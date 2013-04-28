@@ -45,6 +45,6 @@ void ButtonFactorial_Clicked(GtkButton *button, App *app);
 void ButtonExp_Clicked(GtkButton *button, App *app);
 void ButtonExec_Clicked(GtkButton *button, App *app);
 void ButtonC_Clicked(GtkButton *button, App *app);
-void ButtonCe_Clicked(GtkButton *button, App *app);
+void ButtonAc_Clicked(GtkButton *button, App *app);
 
 #endif

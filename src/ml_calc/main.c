@@ -1,3 +1,4 @@
+#include <locale.h>
 #include "shared.h"
 #include "main.h"
 #include "operations.h"
@@ -15,10 +16,12 @@ void RegisterSignals(App *app)
 
 int Init(App **app)
 {
+    setlocale(LC_NUMERIC,"C");
     *app = malloc(sizeof(App));
     if (*app == NULL)
         return 0;
 
+    (*app)->last_operation = NULL;
     (*app)->step = STEP_WAIT_FIRST_NUMBER;
     (*app)->buffer = malloc(256);
     (*app)->buffer[0] = '0';

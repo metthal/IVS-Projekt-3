@@ -26,7 +26,7 @@ Buttons buttonsData[ML_CALC_BUTTONS_MAX] =
     { "but_ml_exp", &ButtonExp_Clicked },
     { "but_ml_exec", &ButtonExec_Clicked },
     { "but_ml_C", &ButtonC_Clicked },
-    { "but_ml_Ce", &ButtonCe_Clicked },
+    { "but_ml_AC", &ButtonAc_Clicked },
     
 };
 
@@ -41,7 +41,7 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
 
     int key = gdk_keyval_to_unicode(event->keyval);
     int buttonId = -1;
-
+    printf("key: %d\n", key);
     switch (key)
     {
         case '0':
@@ -68,8 +68,9 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
         case '/':
             buttonId = ML_CALC_BUTTON_DIVIDE;
             break;
-        case '=':
+        case 0:  
             buttonId = ML_CALC_BUTTON_EXEC;
+            break;
         default:
             return FALSE;
     }
@@ -222,7 +223,8 @@ void ButtonAdd_Clicked(GtkButton *button, App *app)
     else if (app->step == STEP_SECOND_NUMBER)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
-        app->storedNum = app->storedNum + StrToDouble(str); // operacia ml_add
+        printf(" str: %.10f\n", StrToDouble(str));
+        app->storedNum = ml_add(app->storedNum,StrToDouble(str)); // operacia ml_add
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
@@ -234,78 +236,211 @@ void ButtonAdd_Clicked(GtkButton *button, App *app)
 void ButtonSubtract_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
-    UNUSED(app);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = StrToDouble(str);
+        app->step = STEP_WAIT_SECOND_NUMBER;
+    }
+    else if (app->step == STEP_SECOND_NUMBER)
+    {
+        app->step = STEP_WAIT_SECOND_NUMBER;
+        app->storedNum = ml_subtract(app->storedNum,StrToDouble(str)); // operacia ml_add
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
+    app->last_operation= &ButtonSubtract_Clicked;
 }
 
 void ButtonMultiply_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
-    UNUSED(app);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = StrToDouble(str);
+        app->step = STEP_WAIT_SECOND_NUMBER;
+    }
+    else if (app->step == STEP_SECOND_NUMBER)
+    {
+        app->step = STEP_WAIT_SECOND_NUMBER;
+        app->storedNum = ml_multiply(app->storedNum,StrToDouble(str)); // operacia ml_add
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
+    app->last_operation= &ButtonMultiply_Clicked;   
 }
 
 void ButtonDivide_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
-    UNUSED(app);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = StrToDouble(str);
+        app->step = STEP_WAIT_SECOND_NUMBER;
+    }
+    else if (app->step == STEP_SECOND_NUMBER)
+    {
+        app->step = STEP_WAIT_SECOND_NUMBER;
+        app->storedNum = ml_divide(app->storedNum,StrToDouble(str)); // operacia ml_add
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
+    app->last_operation= &ButtonDivide_Clicked;
 }
 
 void ButtonPower_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
-    UNUSED(app);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
 
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = StrToDouble(str);
+        app->step = STEP_WAIT_SECOND_NUMBER;
+    }
+    else if (app->step == STEP_SECOND_NUMBER)
+    {
+        app->step = STEP_WAIT_SECOND_NUMBER;
+        app->storedNum = ml_power(app->storedNum,StrToDouble(str)); // operacia ml_add
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
+    app->last_operation= &ButtonPower_Clicked;
 }
 
 void ButtonLn_Clicked(GtkButton* button, App* app)
 {
-     UNUSED(button);
-     UNUSED(app);
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = ml_ln(StrToDouble(str));
+        app->step = STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
 }
 
 void ButtonAbs_Clicked(GtkButton* button, App* app)
 {
-     UNUSED(button);
-     UNUSED(app);
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = ml_abs(StrToDouble(str));
+        app->step = STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
 }
 
 void ButtonExp_Clicked(GtkButton* button, App* app)
 {
-     UNUSED(button);
-     UNUSED(app);
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = ml_exp(StrToDouble(str));
+        app->step = STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
 }
 
 void ButtonRoot_Clicked(GtkButton* button, App* app)
 {
-     UNUSED(button);
-     UNUSED(app);
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = StrToDouble(str);
+        app->step = STEP_WAIT_SECOND_NUMBER;
+    }
+    else if (app->step == STEP_SECOND_NUMBER)
+    {
+        app->step = STEP_WAIT_SECOND_NUMBER;
+        app->storedNum = ml_root(app->storedNum,StrToDouble(str)); // operacia ml_add
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
+    app->last_operation= &ButtonRoot_Clicked;
 }
 
 void ButtonFactorial_Clicked(GtkButton* button, App* app)
 {
-     UNUSED(button);
-     UNUSED(app);
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = ml_factorial(StrToDouble(str));
+        app->step = STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
 }
 
 void ButtonDecimal_Clicked(GtkButton* button, App* app)
 {
-     UNUSED(button);
-     UNUSED(app);
+    UNUSED(button);
+
+    if (app->step == STEP_FIRST_NUMBER || app->step == STEP_SECOND_NUMBER)
+    {
+        gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), ".", -1);
+    }
 }
 
 void ButtonExec_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
+    if(app->last_operation == NULL )
+        return;
     //char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
     app->last_operation(NULL, app);
+    app->last_operation = NULL;
     app->step = STEP_WAIT_FIRST_NUMBER;
 }
 
 void ButtonC_Clicked(GtkButton* button, App* app)
 {
-
+    UNUSED(button);
+    
+    
 }
 
-void ButtonCe_Clicked(GtkButton* button, App* app)
+void ButtonAc_Clicked(GtkButton* button, App* app)
 {
 
 }
