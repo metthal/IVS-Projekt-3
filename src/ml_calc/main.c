@@ -19,9 +19,10 @@ int Init(App **app)
     if (*app == NULL)
         return 0;
 
-    (*app)->step = STEP_FIRST_NUMBER;
+    (*app)->step = STEP_WAIT_FIRST_NUMBER;
     (*app)->buffer = malloc(256);
-    (*app)->buffer[0] = '\0';
+    (*app)->buffer[0] = '0';
+    (*app)->buffer[1] = 0; 
 
     gtk_init(NULL, NULL);
 

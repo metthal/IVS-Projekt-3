@@ -82,10 +82,10 @@ void Button0_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
 
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "0", 1);
@@ -95,10 +95,10 @@ void Button1_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
 
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "1", 1);
@@ -108,10 +108,10 @@ void Button2_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
     
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "2", 1);
@@ -121,10 +121,10 @@ void Button3_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
     
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "3", 1);
@@ -134,10 +134,10 @@ void Button4_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
     
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "4", 1);
@@ -147,10 +147,10 @@ void Button5_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
     
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "5", 1);
@@ -160,10 +160,10 @@ void Button6_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
     
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "6", 1);
@@ -173,10 +173,10 @@ void Button7_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
     
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "7", 1);
@@ -186,10 +186,10 @@ void Button8_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
     
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "8", 1);
@@ -199,10 +199,10 @@ void Button9_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
 
-    if (app->step == STEP_WAIT_FOR_NEW)
+    if (app->step == STEP_WAIT_FIRST_NUMBER || app->step == STEP_WAIT_SECOND_NUMBER)
     {
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
-        app->step = STEP_NEW_NUMBER;
+        app->step++;
     }
     
     gtk_text_buffer_insert_at_cursor(gtk_text_view_get_buffer(app->textView), "9", 1);
@@ -211,92 +211,93 @@ void Button9_Clicked(GtkButton *button, App *app)
 void ButtonAdd_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
-    //gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "", -1);
     
     char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
-    
-    if (app->step == STEP_FIRST_NUMBER)
+
+    if (app->step <= STEP_FIRST_NUMBER)
     {
         app->storedNum = StrToDouble(str);
-        app->step = STEP_WAIT_FOR_NEW;
+        app->step = STEP_WAIT_SECOND_NUMBER;
     }
-    else
+    else if (app->step == STEP_SECOND_NUMBER)
     {
-        app->step = STEP_WAIT_FOR_NEW;
-        app->storedNum = app->storedNum + StrToDouble(str); // TU PRIDE OPERACIA, ULOZI MEDZIVYSLEDOK DO storedNum
+        app->step = STEP_WAIT_SECOND_NUMBER;
+        app->storedNum = app->storedNum + StrToDouble(str); // operacia ml_add
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
+    else
+        return;
+    app->last_operation= &ButtonAdd_Clicked;
 }
 
 void ButtonSubtract_Clicked(GtkButton *button, App *app)
 {
     UNUSED(button);
-
-    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
-    
-    if (app->step == STEP_FIRST_NUMBER)
-    {
-        app->storedNum = StrToDouble(str);
-        app->step = STEP_WAIT_FOR_NEW;
-    }
-    else
-    {
-        app->step = STEP_WAIT_FOR_NEW;
-        app->storedNum = app->storedNum - StrToDouble(str); // TU PRIDE OPERACIA, ULOZI MEDZIVYSLEDOK DO storedNum
-        sprintf(app->buffer, "%.10g", app->storedNum);
-        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
-    }
+    UNUSED(app);
 }
 
 void ButtonMultiply_Clicked(GtkButton* button, App* app)
 {
-
+    UNUSED(button);
+    UNUSED(app);
 }
 
 void ButtonDivide_Clicked(GtkButton* button, App* app)
 {
-
+    UNUSED(button);
+    UNUSED(app);
 }
 
 void ButtonPower_Clicked(GtkButton* button, App* app)
 {
+    UNUSED(button);
+    UNUSED(app);
 
 }
 
 void ButtonLn_Clicked(GtkButton* button, App* app)
 {
-
+     UNUSED(button);
+     UNUSED(app);
 }
 
 void ButtonAbs_Clicked(GtkButton* button, App* app)
 {
-
+     UNUSED(button);
+     UNUSED(app);
 }
 
 void ButtonExp_Clicked(GtkButton* button, App* app)
 {
-
+     UNUSED(button);
+     UNUSED(app);
 }
 
 void ButtonRoot_Clicked(GtkButton* button, App* app)
 {
-
+     UNUSED(button);
+     UNUSED(app);
 }
 
 void ButtonFactorial_Clicked(GtkButton* button, App* app)
 {
-
+     UNUSED(button);
+     UNUSED(app);
 }
 
 void ButtonDecimal_Clicked(GtkButton* button, App* app)
 {
-
+     UNUSED(button);
+     UNUSED(app);
 }
 
 void ButtonExec_Clicked(GtkButton* button, App* app)
 {
-
+    UNUSED(button);
+    //char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    app->last_operation(NULL, app);
+    app->step = STEP_WAIT_FIRST_NUMBER;
 }
 
 void ButtonC_Clicked(GtkButton* button, App* app)

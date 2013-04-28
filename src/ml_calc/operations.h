@@ -5,9 +5,10 @@
 
 enum Steps
 {
-    STEP_FIRST_NUMBER       = 0,
-    STEP_WAIT_FOR_NEW,
-    STEP_NEW_NUMBER
+    STEP_WAIT_FIRST_NUMBER           =0,
+    STEP_FIRST_NUMBER,
+    STEP_WAIT_SECOND_NUMBER,
+    STEP_SECOND_NUMBER,
 };
 
 typedef struct

@@ -35,7 +35,7 @@ enum ML_CalcButtons
     ML_CALC_BUTTONS_MAX
 };
 
-typedef struct
+typedef struct struct_app
 {
     GtkWindow *mainWindow;
     GtkTextView *textView;
@@ -45,6 +45,8 @@ typedef struct
     int step;
 
     gchar *buffer;
+    
+    void (*last_operation)(GtkButton *button, struct struct_app *app);
 } App;
 
 #endif
