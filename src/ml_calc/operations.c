@@ -226,8 +226,7 @@ void ButtonAdd_Clicked(GtkButton *button, App *app)
     else if (app->step == STEP_SECOND_NUMBER)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
-        printf(" str: %.10f\n", StrToDouble(str));
-        app->storedNum = ml_add(app->storedNum,StrToDouble(str)); // operacia ml_add
+        app->storedNum = ml_add(app->storedNum,StrToDouble(str));
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
@@ -250,7 +249,7 @@ void ButtonSubtract_Clicked(GtkButton *button, App *app)
     else if (app->step == STEP_SECOND_NUMBER)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
-        app->storedNum = ml_subtract(app->storedNum,StrToDouble(str)); // operacia ml_add
+        app->storedNum = ml_subtract(app->storedNum,StrToDouble(str));
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
@@ -273,7 +272,7 @@ void ButtonMultiply_Clicked(GtkButton* button, App* app)
     else if (app->step == STEP_SECOND_NUMBER)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
-        app->storedNum = ml_multiply(app->storedNum,StrToDouble(str)); // operacia ml_add
+        app->storedNum = ml_multiply(app->storedNum,StrToDouble(str));
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
@@ -296,7 +295,7 @@ void ButtonDivide_Clicked(GtkButton* button, App* app)
     else if (app->step == STEP_SECOND_NUMBER)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
-        app->storedNum = ml_divide(app->storedNum,StrToDouble(str)); // operacia ml_add
+        app->storedNum = ml_divide(app->storedNum,StrToDouble(str));
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
@@ -319,7 +318,7 @@ void ButtonPower_Clicked(GtkButton* button, App* app)
     else if (app->step == STEP_SECOND_NUMBER)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
-        app->storedNum = ml_power(app->storedNum,StrToDouble(str)); // operacia ml_add
+        app->storedNum = ml_power(app->storedNum,StrToDouble(str));
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
@@ -390,7 +389,7 @@ void ButtonRoot_Clicked(GtkButton* button, App* app)
     else if (app->step == STEP_SECOND_NUMBER)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
-        app->storedNum = ml_root(app->storedNum,StrToDouble(str)); // operacia ml_add
+        app->storedNum = ml_root(app->storedNum,StrToDouble(str));
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
     }
@@ -428,9 +427,9 @@ void ButtonDecimal_Clicked(GtkButton* button, App* app)
 void ButtonExec_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
-    if(app->last_operation == NULL )
+    if(app->last_operation == NULL)
         return;
-    //char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+
     app->last_operation(NULL, app);
     app->last_operation = NULL;
     app->step = STEP_WAIT_FIRST_NUMBER;
@@ -442,12 +441,10 @@ void ButtonC_Clicked(GtkButton* button, App* app)
     if (app->step == STEP_SECOND_NUMBER)
     {
         app->step = STEP_WAIT_SECOND_NUMBER;
-        sprintf(app->buffer, "%.10g", 0.0);
-        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "0", -1);
     }
     else
     {
-        app->storedNum=0;
         app->step= STEP_WAIT_FIRST_NUMBER;
         sprintf(app->buffer, "%.10g", app->storedNum);
         gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
@@ -458,10 +455,9 @@ void ButtonC_Clicked(GtkButton* button, App* app)
 void ButtonAc_Clicked(GtkButton* button, App* app)
 {
     UNUSED(button);
-    app->storedNum=0;
-    app->step= STEP_WAIT_FIRST_NUMBER;
-    sprintf(app->buffer, "%.10g", app->storedNum);
-    gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    app->storedNum = 0;
+    app->step = STEP_WAIT_FIRST_NUMBER;
+    gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), "0", -1);
 }
 
 void ButtonSign_Clicked(GtkButton* button, App* app)
