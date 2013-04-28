@@ -36,7 +36,7 @@ Buttons buttonsData[ML_CALC_BUTTONS_MAX] =
 
 double StrToDouble(const char *str)
 {
-    return strtod(str, NULL);
+    return g_ascii_strtod(str, NULL);
 }
 
 gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
