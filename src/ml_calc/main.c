@@ -1,4 +1,3 @@
-#include <locale.h>
 #include "shared.h"
 #include "main.h"
 #include "operations.h"
@@ -16,7 +15,6 @@ void RegisterSignals(App *app)
 
 int Init(App **app)
 {
-    setlocale(LC_NUMERIC,"C");
     *app = malloc(sizeof(App));
     if (*app == NULL)
         return 0;
