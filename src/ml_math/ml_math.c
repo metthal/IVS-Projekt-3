@@ -235,7 +235,7 @@ double ml_round(double n)
 
 double ml_invert(double n)
 {
-    if (n == 0)
+    if (n == 0.0)
     {
         ml_math_err = ML_MATH_ERROR_DIV_BY_ZERO;
         return 0.0;
@@ -243,6 +243,15 @@ double ml_invert(double n)
 
     ml_math_err = ML_MATH_OK;
     return 1.0/n;
+}
+
+double ml_change_sign(double n)
+{
+    ml_math_err = ML_MATH_OK;
+    if (n == 0.0)
+        return 0.0;
+
+    return -n;
 }
 
 int _ml_isnan(double n)

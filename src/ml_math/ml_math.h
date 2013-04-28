@@ -156,6 +156,8 @@ double ml_abs(double n);
  * @todo pridat popis
  */
 double ml_round(double n);
+double ml_invert(double n);
+double ml_change_sign(double n);
 
 double _ml_power(double x, double a);
 double _ml_factorial(double n);
