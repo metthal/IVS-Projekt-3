@@ -47,8 +47,8 @@ void CharReplace(char *str, const char* substr, char replace)
 
 void PrintDouble(char *buffer, double number)
 {
-    CharReplace(buffer, ",", '.');
     sprintf(buffer, "%.10g", number);
+    CharReplace(buffer, ",", '.');
 }
 
 double StrToDouble(char *str)
