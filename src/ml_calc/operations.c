@@ -1,5 +1,6 @@
 #include "operations.h"
 #include "ml_math.h"
+#include <string.h>
 
 Buttons buttonsData[ML_CALC_BUTTONS_MAX] =
 {
@@ -34,8 +35,19 @@ Buttons buttonsData[ML_CALC_BUTTONS_MAX] =
     
 };
 
-double StrToDouble(const char *str)
+void CharReplace(char *str, const char* substr, char replace)
 {
+    char *new_str = strstr(str, substr);
+    if (!new_str)
+        return;
+
+    *new_str = replace;
+    CharReplace(new_str + 1, substr, replace);
+}
+
+double StrToDouble(char *str)
+{
+    CharReplace(str, ",", '.');
     return g_ascii_strtod(str, NULL);
 }
 

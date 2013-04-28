@@ -39,7 +39,13 @@ typedef struct
 gchar* gtk_text_buffer_get_whole_text(GtkTextBuffer *buffer);
 
 /**
- * @fn StrToDouble(const char *str)
+ * @fn CharReplace(char *str, const char* substr, char replace)
+ *
+ */
+void CharReplace(char *str, const char* substr, char replace);
+
+/**
+ * @fn StrToDouble(char *str)
  *
  * @brief Prevod retezce na desetinne cislo
  * 
@@ -47,7 +53,7 @@ gchar* gtk_text_buffer_get_whole_text(GtkTextBuffer *buffer);
  * 
  * @return Ziskane desetinnec cislo
  */
-double StrToDouble(const char *str);
+double StrToDouble(char *str);
 
 /**
  * @fn gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)      <<< opravit/dodelat
