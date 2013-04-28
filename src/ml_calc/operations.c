@@ -88,8 +88,18 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
         case '/':
             buttonId = ML_CALC_BUTTON_DIVIDE;
             break;
+        case 13:
         case 0:  
             buttonId = ML_CALC_BUTTON_EXEC;
+            break;
+        case '.':
+            buttonId = ML_CALC_BUTTON_DECIMAL;
+            break;
+        case 127:
+            buttonId = ML_CALC_BUTTON_AC;
+            break;
+        case 27:
+            buttonId = ML_CALC_BUTTON_C;
             break;
         default:
             return FALSE;
