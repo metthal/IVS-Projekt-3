@@ -46,5 +46,9 @@ void ButtonExp_Clicked(GtkButton *button, App *app);
 void ButtonExec_Clicked(GtkButton *button, App *app);
 void ButtonC_Clicked(GtkButton *button, App *app);
 void ButtonAc_Clicked(GtkButton *button, App *app);
+void ButtonSign_Clicked(GtkButton *button, App *app);
+void ButtonApprox_Clicked(GtkButton *button, App *app);
+void ButtonSq_Clicked(GtkButton *button, App *app);
+void ButtonInv_Clicked(GtkButton *button, App *app);
 
 #endif

@@ -27,6 +27,10 @@ Buttons buttonsData[ML_CALC_BUTTONS_MAX] =
     { "but_ml_exec", &ButtonExec_Clicked },
     { "but_ml_C", &ButtonC_Clicked },
     { "but_ml_AC", &ButtonAc_Clicked },
+    { "but_ml_sign", &ButtonSign_Clicked },
+    { "but_ml_approx", &ButtonApprox_Clicked },
+    { "but_ml_sq", &ButtonSq_Clicked },
+    { "but_ml_inv", &ButtonInv_Clicked },
     
 };
 
@@ -445,6 +449,47 @@ void ButtonAc_Clicked(GtkButton* button, App* app)
 
 }
 
+void ButtonSign_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonApprox_Clicked(GtkButton* button, App* app)
+{
+
+}
+
+void ButtonSq_Clicked(GtkButton* button, App* app)
+{
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = ml_power(StrToDouble(str),2);
+        app->step = STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
+}
+
+void ButtonInv_Clicked(GtkButton* button, App* app)
+{
+    UNUSED(button);
+    
+    char *str = gtk_text_buffer_get_whole_text(gtk_text_view_get_buffer(app->textView));
+    if (app->step <= STEP_FIRST_NUMBER)
+    {
+        app->storedNum = ml_divide(1,StrToDouble(str));
+        app->step = STEP_WAIT_FIRST_NUMBER;
+        sprintf(app->buffer, "%.10g", app->storedNum);
+        gtk_text_buffer_set_text(gtk_text_view_get_buffer(app->textView), app->buffer, -1);
+    }
+    else
+        return;
+}
 
 gchar* gtk_text_buffer_get_whole_text(GtkTextBuffer *buffer)
 {
