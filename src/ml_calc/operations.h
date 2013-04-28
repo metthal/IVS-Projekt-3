@@ -1,7 +1,7 @@
 /**
- * @file ml_math.h
+ * @file operations.h
  * 
- * @brief Hlavickovy soubor matematicke knihovny
+ * @brief Hlavickovy soubor handlingu stisku tlacitek
  * 
  * @author Lukas Vrabec
  *

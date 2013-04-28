@@ -77,10 +77,10 @@ gboolean KeyPressed(GtkWidget *widget, GdkEventKey *event, App *app)
         case '7':
         case '8':
         case '9':
-            if (strlen(str) != MAX_DIGITS)
-            {
-                buttonId = key - '0';
-            }
+            if (strlen(str) >= MAX_DIGITS)
+                return FALSE;
+            
+            buttonId = key - '0';
             break;
         case '+':
             buttonId = ML_CALC_BUTTON_ADD;

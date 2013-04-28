@@ -85,9 +85,9 @@ double ml_divide(double a, double b);
  *
  * @brief Mocnina s prirozenym exponentem
  * 
- * @param a Zaklad - desetinne cislo
+ * @param x Zaklad - desetinne cislo
  *
- * @param b Exponent - desetinne cislo
+ * @param a Exponent - desetinne cislo
  * 
  * @return Hodnota vyrazu x^a. Pokud je jedna ze zadanych hodnot NAN nebo pro
  * zadany vyraz neexistuje reseni vraci NAN.
@@ -150,7 +150,7 @@ double ml_factorial(double n);
  * 
  * @param n pro toto cislo bude vracena absolutni hodnota
  * 
- * @return Pokud je x cislelna hodnota |n|, jinak NAN
+ * @return Pokud je n cislelna hodnota |n|, jinak NAN
  */
 double ml_abs(double n);
 
