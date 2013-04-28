@@ -3,9 +3,11 @@
  * 
  * @brief Hlavickovy soubor matematicke knihovny
  * 
- * @author Marek Milkov, Lubica Gencurova
+ * @author Marek Milkovic, Lubica Gencurova
  *
  * @date 27.4.2013
+ *
+ * @todo Vyresit problem se strtordem na systemech s radovou carkou misto "."
  */
 
 #ifndef ML_MATH_H
@@ -153,20 +155,21 @@ double ml_factorial(double n);
 double ml_abs(double n);
 
 /**
- * @fn double ml_round(double n)
- *
- * @brief Zaokrouhleni cisla - do 0.4 dolu, jinak nahoru
- * 
- * @param n Desetinne cislo, ktere se zaokrouhluje
- * 
- * @return Zaokrouhlene cislo
+ * @todo pridat popis
  */
 double ml_round(double n);
 
 /**
  * @fn double ml_invert(double n)
  *
- * @todo pridat popis
+ * @brief Zaokrouhleni cisla - do 0.4 dolu, jinak nahoru
+ * 
+ * @param n Desetinne cislo, ktere se zaokrouhluje
+ * 
+ * @return Zaokrouhlene cislo
+ *
+ * @bug Vsechna cisla zaokrouhluje dolu
+ *
  */
 double ml_invert(double n);
 

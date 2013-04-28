@@ -1,3 +1,13 @@
+/**
+ * @file ml_math.h
+ * 
+ * @brief Hlavickovy soubor matematicke knihovny
+ * 
+ * @author Lukas Vrabec
+ *
+ * @date 28.4.2013
+ */
+
 #ifndef ML_OPERATIONS_H
 #define ML_OPERATIONS_H
 
